@@ -1,0 +1,131 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <style>
+        .flex-buttons {
+            display: flex;
+            width: 100%;
+        }
+
+        #mynetwork {
+            height: 500px;
+            border: 1px solid lightgray;
+            color: aliceblue;
+        }
+        .container{
+            margin-top: 20px;
+        }
+
+    </style>
+        <title>Red-Black-Tree</title>
+</head>
+<body>
+<div class="container">
+    <h2>Red-Black Tree</h2>
+    <div class="row">
+   
+
+    </div>
+    <div class="row">
+        <input class="col s8" placeholder="Enter a value" id="inputarray" type="text" value="">
+        <span class="col s1"></span>
+        <div class="flex-buttons">
+            <button class="col s3 btn" onclick="addToTree()">ADD</button>
+        </div>
+    </div>
+    <div id="mynetwork"></div>
+</div>
+</body>
+<script src="./red-black.js"></script>
+<script>
+
+    let network;
+    let container = document.getElementById("mynetwork");
+    var tree = new RedBlackTree(0);
+
+    function addToTree(){
+        let value = parseInt($('#inputarray')[0].value);
+        if(tree._root.value === 0){
+            tree._root.value = value;
+        } else {
+            tree.insert(value);
+        }
+        redraw();
+    }
+
+    function deleteToTree() {
+        let value = parseInt($('#inputarray')[0].value);
+
+
+        tree.delete(value);
+
+        redraw();
+
+
+    }
+
+
+    function findToTree() {
+        let value = parseInt($('#inputarray')[0].value);
+        if(tree._root.value === 0){
+            tree._root.value = value;
+        } else {
+            tree.insert(value);
+        }
+        redraw();
+    }
+
+
+    function redraw(){
+        let data = createNodesLinks(tree._root);
+        destroyNetwork();
+        createNetwork(data);
+    }
+
+    function createNodesLinks(root){
+        var nodes = [];
+        var edges = [];
+
+        function traverse(node,key){
+            nodes.push({id: key, label: node.value, color: node.color, font: '12px arial lightgray'});
+            if(node.children){
+                if(node.children[0]){
+                    edges.push({from:key,to:key+"0"})
+                    traverse(node.children[0],key+"0")
+                }
+                if(node.children[1]){
+                    edges.push({from:key,to:key+"1"})
+                    traverse(node.children[1],key+"1")
+                }
+            }
+        }
+        traverse(root,"0");
+        return {nodes: nodes, edges: edges}
+    }
+
+    function destroyNetwork(){
+        if(network !== undefined){
+            network.destroy();
+        }
+    }
+
+
+    function createNetwork(data){
+        const options =  {
+            layout: {
+                hierarchical: {
+                    direction: "UD",
+                    sortMethod: "directed"
+                }
+            }
+        };
+        network = new vis.Network(container, data, options);
+    }
+</script>
+</html>
