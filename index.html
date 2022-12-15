@@ -23,7 +23,6 @@
         }
 
     </style>
-        <title>Red-Black-Tree</title>
 </head>
 <body>
 <div class="container">
@@ -37,9 +36,22 @@
         <span class="col s1"></span>
         <div class="flex-buttons">
             <button class="col s3 btn" onclick="addToTree()">ADD</button>
+
         </div>
     </div>
     <div id="mynetwork"></div>
+    <style>
+
+        .vis-network  canvas{
+            transition: 0.5s;
+            transform: rotateX(1rad);
+            width: 90%;
+            height: 90%;
+        }
+
+
+    </style>
+
 </div>
 </body>
 <script src="./red-black.js"></script>
@@ -50,28 +62,6 @@
     var tree = new RedBlackTree(0);
 
     function addToTree(){
-        let value = parseInt($('#inputarray')[0].value);
-        if(tree._root.value === 0){
-            tree._root.value = value;
-        } else {
-            tree.insert(value);
-        }
-        redraw();
-    }
-
-    function deleteToTree() {
-        let value = parseInt($('#inputarray')[0].value);
-
-
-        tree.delete(value);
-
-        redraw();
-
-
-    }
-
-
-    function findToTree() {
         let value = parseInt($('#inputarray')[0].value);
         if(tree._root.value === 0){
             tree._root.value = value;
