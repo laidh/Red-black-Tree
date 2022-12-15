@@ -1,0 +1,13 @@
+.flex-buttons {
+    display: flex;
+    width: 100%;
+}
+
+#mynetwork {
+    height: 500px;
+    border: 1px solid lightgray;
+    color: aliceblue;
+}
+.container{
+    margin-top: 20px;
+}

@@ -1,28 +1,13 @@
 <html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.js"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <style>
-        .flex-buttons {
-            display: flex;
-            width: 100%;
-        }
-
-        #mynetwork {
-            height: 500px;
-            border: 1px solid lightgray;
-            color: aliceblue;
-        }
-        .container{
-            margin-top: 20px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>RedBlackTree</title>
 </head>
 <body>
 <div class="container">
@@ -39,22 +24,9 @@
 
         </div>
     </div>
-    <div id="mynetwork"></div>
-    <style>
-
-        .vis-network  canvas{
-            transition: 0.5s;
-            transform: rotateX(1rad);
-            width: 90%;
-            height: 90%;
-        }
-
-
-    </style>
-
 </div>
 </body>
-<script src="./red-black.js"></script>
+<script src="java/red-black.js"></script>
 <script>
 
     let network;
