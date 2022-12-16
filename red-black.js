@@ -110,28 +110,3 @@ RedBlackTree.prototype.insert = function(value){
 
 }
 
-
-RedBlackTree.prototype.search = function(value){
-
-    function subtreeSearch(node){
-        if (node.value === null) {
-            return false;
-        } else if(node.value === value){
-            return node;
-        } else if(value < node.value) {
-            let left = subtreeSearch(node.children[0]);
-            if(left){
-                return left;
-            }
-        } else if(value > node.value) {
-            let right = subtreeSearch(node.children[1]);
-            if(right){
-                return right;
-            }
-        }
-    }
-
-    
-    return subtreeSearch(this._root);
-
-}

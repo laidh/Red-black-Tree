@@ -1,32 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>RedBlackTree</title>
+    <title>Red-Black-Tree</title>
 </head>
 <body>
-<div class="container">
-    <h2>Red-Black Tree</h2>
-    <div class="row">
-   
-
-    </div>
-    <div class="row">
-        <input class="col s8" placeholder="Enter a value" id="inputarray" type="text" value="">
-        <span class="col s1"></span>
-        <div class="flex-buttons">
-            <button class="col s3 btn" onclick="addToTree()">ADD</button>
-
+    <div class="container">
+        <h2>Red-Black Tree</h2>
+        <div class="row">
+       
+    
         </div>
+        <div class="row">
+            <input class="col s8" placeholder="Enter a value" id="inputarray" type="text" value="">
+            <span class="col s1"></span>
+            <div class="flex-buttons">
+                <button class="col s3 btn" onclick="addToTree()">ADD</button>
+            </div>
+        </div>
+        <div id="mynetwork"></div>
     </div>
-</div>
 </body>
-<script src="java/red-black.js"></script>
+<script src="./red-black.js"></script>
 <script>
 
     let network;
@@ -42,7 +47,6 @@
         }
         redraw();
     }
-
 
     function redraw(){
         let data = createNodesLinks(tree._root);
